@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--<suite name="CrossBrowser" parallel="tests" thread-count="2">-->
+<suite name="CrossBrowser" >
+<!--    <listeners>-->
+<!--        <listener class-name="com.ddp.utility.ListenerClass"></listener>-->
+<!--    </listeners>-->
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"></parameter>
+        <!--   Input links tất cả URLs (check meta, check broken links...). Nhớ thay ký tự & = &amp;  -->
+        <parameter name="urlList" value= ""/>
+
+        <classes>
+            <class name="com.ddp.testcases.CommonPageGGTest_New"/>
+<!--            <class name="com.ddp.testcases.PricePromiseClaimPageTest"/>-->
+        </classes>
+    </test>
+
+<!--    <test name="IETest">-->
+<!--        <parameter name="browser" value="ie"></parameter>-->
+<!--        <parameter name="urlList" value= ""/>-->
+<!--        <classes>-->
+<!--            <class name="com.ddp.testcases.CommonPageTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
