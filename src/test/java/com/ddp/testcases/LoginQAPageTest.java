@@ -30,7 +30,7 @@ public class LoginQAPageTest extends BaseClass {
     public void verifyLoginQAPageTitle() throws InterruptedException {
         loginPage = new LoginPage();
         loginIndexPage = loginPage.passSessionIntoLogin();
-        loginQAPage = loginIndexPage.clickSubmitQALink();
+        loginQAPage = loginIndexPage.clickSubmitButton("qa");
 
         Log.startTestCase("verifyLoginQAPageTitle");
         String actTitle= loginQAPage.getLoginQAPageTitle();

@@ -26,21 +26,15 @@ public class LoginIndexPage extends BaseClass {
     public LoginIndexPage() {
         PageFactory.initElements(getDriver(), this);
     }
-    public LoginQAPage clickSubmitQALink() throws InterruptedException {
+    public LoginQAPage clickSubmitButton(String env) throws InterruptedException {
         getDriver().manage().addCookie(new Cookie("JSESSIONID", BaseClass.prop.getProperty("session")));
         sleep(1000);
         getDriver().navigate().to("https://wds.samsung.com/wds/sso/login/ssoLoginSuccess.do");
-        action.fluentWait(getDriver(), submitQALink, 10);
-        sleep(1000);
-        ArrayList<String> browserTabs = Lists.newArrayList(getDriver().getWindowHandles());
-        getDriver().switchTo().window(browserTabs.get(1));
-        return new LoginQAPage();
-    }
-    public LoginQAPage clickSubmitAuthorLink() throws InterruptedException {
-        getDriver().manage().addCookie(new Cookie("JSESSIONID", BaseClass.prop.getProperty("session")));
-        sleep(1000);
-        getDriver().navigate().to("https://wds.samsung.com/wds/sso/login/ssoLoginSuccess.do");
-        action.fluentWait(getDriver(), submitAuthorLink, 10);
+        if(env.equals("qa")){
+            action.fluentWait(getDriver(), submitQALink, 10);
+        } else {
+            action.fluentWait(getDriver(), submitAuthorLink, 10);
+        }
         sleep(1000);
         ArrayList<String> browserTabs = Lists.newArrayList(getDriver().getWindowHandles());
         getDriver().switchTo().window(browserTabs.get(1));

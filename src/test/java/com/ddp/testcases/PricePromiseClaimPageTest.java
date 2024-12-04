@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 import java.util.Hashtable;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 
@@ -40,7 +39,7 @@ public class PricePromiseClaimPageTest extends BaseClass {
 
         loginPage = new LoginPage();
         loginIndexPage = loginPage.passSessionIntoLogin();
-        loginQAPage = loginIndexPage.clickSubmitQALink();
+        loginQAPage = loginIndexPage.clickSubmitButton("qa");
         pricePromiseClaimPage = loginQAPage.loginAndGoToPPCPage();
         // Reset attribute values
         pricePromiseClaimPage.setEmptyValuesToAttributeValues(ctx);

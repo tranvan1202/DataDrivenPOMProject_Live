@@ -18,10 +18,9 @@ import java.util.Hashtable;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
-import static org.testng.Assert.assertTrue;
 
 @Listeners(GSheetListener_New.class)
-public class CommonPageGGTest_New extends BaseClass {
+public class CommonPageGGTestNew extends BaseClass {
     private LoginPage loginPage;
     private LoginIndexPage loginIndexPage;
     private LoginQAPage loginQAPage;
@@ -45,7 +44,7 @@ public class CommonPageGGTest_New extends BaseClass {
 
         loginPage = new LoginPage();
         loginIndexPage = loginPage.passSessionIntoLogin();
-        loginQAPage = loginIndexPage.clickSubmitQALink();
+        loginQAPage = loginIndexPage.clickSubmitButton("qa");
         commonPageGGNew = loginQAPage.loginAndGoToCommonPageNew();
         // Reset attribute values
         commonPageGGNew.setEmptyValuesToAttributeValues(ctx);
@@ -61,7 +60,7 @@ public class CommonPageGGTest_New extends BaseClass {
 
         loginPage = new LoginPage();
         loginIndexPage = loginPage.passSessionIntoLogin();
-        loginQAPage = loginIndexPage.clickSubmitAuthorLink();
+        loginQAPage = loginIndexPage.clickSubmitButton("author");
         commonPageGGNew = loginQAPage.loginAndGoToCommonPageNew();
         // Reset attribute values
         commonPageGGNew.setEmptyValuesToAttributeValues(ctx);
